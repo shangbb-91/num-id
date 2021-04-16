@@ -1,0 +1,19 @@
+server:
+  port: 8888
+
+spring:
+  redis:
+    host: 192.168.99.103
+    port: 6379
+    #    password: xxx
+  data:
+    mongodb:
+      uri: mongodb://192.168.99.103:27017/idserver?authSource=admin
+
+app:
+  redis-key-prefix: numid-
+
+logging:
+  level:
+    root: info
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
