@@ -27,10 +27,19 @@ public class ApplicationStarter {
         SpringApplication.run(ApplicationStarter.class, args);
     }
 
+    /**
+     * 使用redis实现
+     */
     @Bean
     public QueueManager queueManager(RedisTemplate<String, Long> redisTemplate, GenerateLogService generateLogService, BaseAppConfig baseAppConfig) {
         return new RedisQueueManager(redisTemplate, generateLogService, baseAppConfig);
     }
+
+    //使用java队列实现
+//    @Bean
+//    public QueueManager queueManager() {
+//        return new LocalQueueManager();
+//    }
 
     @Bean
     @ConditionalOnMissingBean
